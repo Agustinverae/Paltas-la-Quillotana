@@ -801,6 +801,19 @@
     </div>
   </footer>
 
-  <!-- La medición de GA4 y el script de eventos se incorporarán después. -->
+  <script>
+  document.querySelectorAll('#cta-principal, .cta-principal')
+    .forEach(function (boton) {
+      boton.addEventListener('click', function () {
+        var seccion = boton.closest('section');
+
+        gtag('event', 'clic_cta_principal', {
+          ubicacion: seccion && seccion.id
+            ? seccion.id
+            : 'sin_seccion'
+        });
+      });
+    });
+</script>
 </body>
 </html>
